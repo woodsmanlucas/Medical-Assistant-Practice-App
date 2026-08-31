@@ -17,7 +17,7 @@ export function Conversation(props: MyConvoProps) {
     <h1>Conversation</h1>
     <div className="overflow-y-auto max-h-[400px]">    
         {props.convo && props.convo.map(textobj => (
-            <p className={textobj.response ? "pe-[100px] bg-gray-500" : "ps-[100px] bg-blue-500"}>{textobj.text}</p>
+            <p key={String(textobj.id)} className={textobj.response ? "pe-[100px] bg-gray-500" : "ps-[100px] bg-blue-500"}>{textobj.text}</p>
         ))}
     </div>
 

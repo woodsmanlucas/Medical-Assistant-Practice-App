@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Conversation } from "./conversation";
+import uniqid from 'uniqid';
 
 export function Welcome() {
 
@@ -20,6 +21,7 @@ interface ConvoObj {
   const [loadingPercent, setLoadingPercent] = useState(0);
   const [complete, setComplete] = useState(false);
   const [finalResponse, setFinalResponse] = useState(""); 
+  const sessionId = uniqid.time();
   
   useEffect(() => {handleStartQuery()}, []);
 
@@ -49,7 +51,7 @@ interface ConvoObj {
     model: model,
     prompt: "As the patient your pretending to be," + String(request),
     stream: false,
-    sessionId: "1"
+    sessionId: sessionId
     }),
   });
 
@@ -77,7 +79,7 @@ interface ConvoObj {
     model: model,
     prompt: "Here is my summary for our conversation with you as a patient:" + String(summary) + "Could you tell me how I did in gathering information about our conversation?",
     stream: false,
-    sessionId: "1"
+    sessionId: sessionId
     }),
   });
 
@@ -152,7 +154,7 @@ interface ConvoObj {
     model: model,
     prompt: `Could you generate a list of symptoms for a patient in a doctors office with ${listOfDiseases[RandomSpotInList]}?`,
     stream: false,
-    sessionId: "1"
+    sessionId: sessionId
     }),
   });
 
@@ -180,7 +182,7 @@ interface ConvoObj {
     model: model,
     prompt: `Now lets pretend you are the patient and I am the medical assistant interviewing you?`,
     stream: false,
-    sessionId: "1"
+    sessionId: sessionId
     }),
   });
 
@@ -212,7 +214,7 @@ interface ConvoObj {
         </div>
         </div>
     </main>)}
-     {complete && <p>{finalResponse}</p>}
+     {complete && <p className="p-[50px]">{finalResponse}</p>}
     </div>
   );
 }
