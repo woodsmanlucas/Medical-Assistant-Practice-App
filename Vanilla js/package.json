@@ -1,0 +1,12 @@
+{
+  "name": "vanilla-js",
+  "version": "1.0.0",
+  "description": "Vanilla-js app for practicing medical interviews",
+  "license": "ISC",
+  "author": "Lucas Johnson",
+  "type": "commonjs",
+  "main": "Medical-Assistant-Practice-App.js",
+  "scripts": {
+    "test": "dev"
+  }
+}
